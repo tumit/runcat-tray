@@ -55,7 +55,7 @@ GtkWidget *root, *item_cpu, *item_quit, *item_mode_menu;
 AppIndicator *indicator;
 GError *error = NULL;
 
-static gboolean get_cpu_usage() {
+static gboolean get_cpu_usage(gpointer user_data) {
   FILE *fd = fopen(PROC_STAT, "r");
   if (fd == NULL) {
     g_print("failed to open %s\n", PROC_STAT);
